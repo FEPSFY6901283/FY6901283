@@ -162,6 +162,37 @@ Table 1: Data on the cost of lifespan of bridge repairs
           Bruzzone, L, Chi, M and Marconcini, M (2006), A novel transductive SVM for semisupervised classification of remote-sensing images,
           IEEE Transactions on Geoscience and Remote Sensing, 44, (11), 3363
 
-          
+
+
+          <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Button Colour</title>
+    <style>
+        #colorButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="colorButton">Click me to change colour</button>
+
+    <script>
+        // Get a reference to the button element
+        var button = document.getElementById("colorButton");
+
+        // Function to change the button color
+        function changeColor() {
+            // Generate a random color (hexadecimal)
+            var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            // Set the button's background color to the random color
+            button.style.backgroundColor = randomColor;
+        }
+
+        // Add a click event listener to the button
+        button.addEventListener("click", changeColor);
+    </script>
         </pre>
       </p>
