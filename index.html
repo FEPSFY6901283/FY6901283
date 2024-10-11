@@ -227,6 +227,15 @@ Table 1: Data on the cost of lifespan of bridge repairs
 
   <script>
     // Get a reference to the button and paragraph
-    var button = document.get
+    var button = document.getElementById("generateButton");
+    var paragraph = document.getElementById("randomNumber);
+
+    //Function to generate and display random number
+                                          function generateRandomNumber() {
+    var randomNumber = Math.floor(Math.random() * ) + 1  
+      paragraph.textContent = "Random Number: " + randomNumber;
+    }
+    // Add a click listener to the button
+    button.addEventListener("click", generateRandomNumber);
   </script>
 </body>
