@@ -269,5 +269,45 @@ Table 1: Data on the cost of lifespan of bridge repairs
             chart.draw(data, options);
         }
     </script>
-      
-          
+
+
+ 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the scatter chart package
+      google.charts.load('current', {packages: ['corechart', 'scatter']});
+
+      // Callback function to draw the chart when the API is loaded
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+
+        // Define columns (Age and Salary)
+        data.addColumn('number', 'Age');
+        data.addColumn('number', 'Salary');
+
+        // Add rows of data (Age and Salary values)
+        data.addRows([
+          [25, 40000],
+          [30, 50000],
+          [35, 60000],
+          [40, 75000],
+          [45, 80000],
+          [50, 90000]
+        ]);
+
+        // Define chart options (titles for axes)
+        var options = {
+          title: 'Age vs. Salary',
+          hAxis: { title: 'Age' },
+          vAxis: { title: 'Salary' }
+        };
+
+        // Create a new ScatterChart and draw it in the element with ID 'chart_div'
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+ 
+        
