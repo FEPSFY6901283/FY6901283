@@ -91,7 +91,7 @@ p.ex1 {
 <hr>
 <h3 id="Introduction"><u><b>Introduction</b></u></h3>
 </hr>
-
+<section id="introduction">
 <p class="ex1">
   <pre>
     Stealth technology has been a highlight of today’s military aviation, especially with the induction of fifth-generation 
@@ -104,7 +104,10 @@ p.ex1 {
     technology remain pertinent, even though stealth capabilities act efficiently against these systems. 
   </pre>
 </p>
+</section>
 <hr>
+
+<section id = "Analysis and Discussion">
 <h3 id="Analysis and Discussion"><b><u>Analysis and Discussion</u></b></h3>
 </hr>
 
@@ -122,7 +125,7 @@ p.ex1 {
       are more efficient in reducing their radar cross-section in higher-frequency bands but are often more 
       detectable by low-frequency radars due to the physical size of the aircraft and the limits of stealth 
       material’s shaping in lower-frequency ranges (Sweetman, 2019). 
-
+<img src =
       Low-frequency radar systems have further revived interest among nations seeking to counter the threat of 
       stealth aircraft. While these systems are normally less precise than high-frequency radars and can be prone
       to clutter from ground reflections, they can still serve as early warning systems (Goure, 2019). When a stealth
@@ -180,7 +183,7 @@ p.ex1 {
       play a prominent role. 
   </pre>
 </p>
-
+</section>
 
 
 <p id="date&time"></p>
@@ -210,7 +213,88 @@ Welch, J., 1989. Assessing the Value of Stealthy Aircraft and Cruise Missiles. I
           <a href = "https://www.jstor.org/stable/2538854?searchText=Assessing+the+Value+of+Stealthy+Aircraft+and+Cruise+Missiles&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3DAssessing%2Bthe%2BValue%2Bof%2BStealthy%2BAircraft%2Band%2BCruise%2BMissiles%26so%3Drel&ab_segments=0%2Fbasic_search_gsv2%2Fcontrol&refreqid=fastly-default%3A9084331690322591c0bc5baf7c18311e">Available here</a>
         </pre>
 
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Last commit time display -->
+<div id="last-updated">Loading last update time...</div>
+<!-- Verify Button -->
+<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+    Verify Last Modified Time
+</button>
+<script>
+    async function getLastUpdatedTime() {
+        const username = 'FEPSFY6901283';
+        const repo = 'FY6901283';
+       
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+        try {7
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+            }
+            const commits = await response.json();
+            if (commits && commits.length > 0) {
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+               
+                // Displaying the time on load
+                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+            } else {
+                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+            }
+        } catch (error) {
+            console.error('Error fetching the last updated time:', error);
+            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+        }
+    }
+    // Function to verify the last update time by re-fetching it from the API
+    async function verifyLastUpdatedTime() {
+        document.getElementById('last-updated').innerText = 'Verifying...';
+        await getLastUpdatedTime();
+        alert("Last modified time has been successfully verified from GitHub API.");
+    }
+    // Initial load to display the time on page load
+    window.onload = getLastUpdatedTime;
+</script>
 
+
+ <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const section1 = displayWordCount("Introduction");
+    const section2 = displayWordCount("Analysis and Discussion");
+  
+    // Calculate the sum of all selected sections
+    const totalWordCount = section1 + section2;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
 
 </body>
 
