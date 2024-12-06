@@ -96,9 +96,9 @@ p.ex1 {
 <hr>
 <h3 id="Introduction"><u><b>Introduction</b></u></h3>
 </hr>
-<section id="Introduction">
-<p class="ex1">
-  <pre>
+
+
+<pre id="Introduction_InText" class="ex1">
     Stealth technology has been a highlight of today’s military aviation, especially with the induction of fifth-generation 
     aircrafts like the F-22 Raptor, F-35 Lightning II, Sukhoi Su-57 and the Chinese JC-20. The design of these aircraft is 
     utilizing sophisticated technology that reduces the surface area (radar cross-section,” RCS”) on which radar can be reflected
@@ -108,16 +108,14 @@ p.ex1 {
     with each driving improvements in the other’s respective fields. This essay will explore the reasons why radar and heat-seeking 
     technology remain pertinent, even though stealth capabilities act efficiently against these systems. 
   </pre>
-</p>
-</section>
 <hr>
 
-<section id = "Analysis1">
+
 <h3 id="Analysis and Discussion"><b><u>Analysis and Discussion</u></b></h3>
 </hr>
 
-<p class="ex1">
-  <pre>
+<pre id = "Analysis1" class="ex1">
+ 
     <b><u>1. Evolution of Radar Technology</u></b>
 
     <b><u>1.1 Low-Frequency Radar</u></b> 
@@ -129,12 +127,11 @@ p.ex1 {
       the shape and composite of stealth materials Welch, 1989). Aircraft utilizing stealth design characteristics 
       are more efficient in reducing their radar cross-section in higher-frequency bands but are often more 
       detectable by low-frequency radars due to the physical size of the aircraft and the limits of stealth 
-      material’s shaping in lower-frequency ranges (Sweetman, 2019). 
+      material’s shaping in lower-frequency ranges (Sweetman, 2019). </pre>
 
     
-</section>
 <img src ="radar_cross-section.png" width="600" height="450">
-    <section id = "Analysis2">
+
       
       Low-frequency radar systems have further revived interest among nations seeking to counter the threat of 
       stealth aircraft. While these systems are normally less precise than high-frequency radars and can be prone
@@ -172,7 +169,7 @@ p.ex1 {
       a constant state of readiness with the average price of an F-35 or F-22 being $100-122 million (Goure, 2019). In long
       term and large-scale conflict scenarios, the ability to maintain stealth may diminish, making aircraft more vulnerable
       to detection by advanced radar and infrared systems (Lee, 2019). 
-    </section>
+  
 
       <img src="f35 cost diagram.png" width="1200" height="900">
 
@@ -203,13 +200,6 @@ p.ex1 {
     </section>
 
 
-<p id="date&time"></p>
-
-<script>
-//Javascript to Display date and time on my web page
-  cost d = new Date()
-  document.getElementByld("date&time").innerHTML = d;
-</script>
 
 <h3 id = "References">References</h3>
       <p>
@@ -301,12 +291,10 @@ Welch, J., 1989. Assessing the Value of Stealthy Aircraft and Cruise Missiles. I
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const section1 = displayWordCount("Introduction");
-    const section2 = displayWordCount("Analysis1");
-    const section3 = displayWordCount("Analysis2");
-    const section4 = displayWordCount("Analysis3");
+    const IntroCount = displayWordCount("Introduction_InText");
+  const section1 = displayWordCount("Analysis1");
     // Calculate the sum of all selected sections
-    const totalWordCount = section1 + section2 + section3 + section4;
+    const totalWordCount = IntroCount + section1;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
